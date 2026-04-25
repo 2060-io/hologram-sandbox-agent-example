@@ -199,6 +199,6 @@ jobs:
         run: |
           echo "## Example Agent VS" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **VS Agent:** https://example-agent.demos.hologram.zone/.well-known/did.json" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **VS Agent:** https://example-agent.sandbox.hologram.zone/.well-known/did.json" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Network:** testnet" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Chart:** ${CHART_SOURCE:-}:${CHART_VERSION:-}" >> "$GITHUB_STEP_SUMMARY"

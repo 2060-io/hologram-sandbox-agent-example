@@ -8,8 +8,8 @@
 #   2. Sets up the veranad CLI account
 #   3. Obtains a Service credential from the Hologram Demo SA organization
 #
-# Requires the hologram-ai-agent-example-deps organization to be running and
-# its admin API reachable (organization.demos.hologram.zone by default).
+# Requires the hologram-sandbox-deps organization to be running and
+# its admin API reachable (organization.sandbox.hologram.zone by default).
 #
 # Prerequisites:
 #   - Docker, ngrok (authenticated), curl, jq
@@ -47,8 +47,8 @@ SERVICE_NAME="${SERVICE_NAME:-Example Agent}"
 USER_ACC="${USER_ACC:-org-vs-admin}"
 OUTPUT_FILE="${OUTPUT_FILE:-${REPO_ROOT}/ids.env}"
 
-# Organization (deployed hologram-ai-agent-example-deps)
-ORG_VS_ADMIN_URL="${ORG_VS_ADMIN_URL:-https://admin.organization.demos.hologram.zone}"
+# Organization (deployed hologram-sandbox-deps)
+ORG_VS_ADMIN_URL="${ORG_VS_ADMIN_URL:-https://admin.organization.sandbox.hologram.zone}"
 ORG_VS_PUBLIC_URL="${ORG_VS_PUBLIC_URL:-}"
 
 # Service details

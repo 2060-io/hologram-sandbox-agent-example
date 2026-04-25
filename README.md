@@ -1,4 +1,4 @@
-# Hologram AI Agent Example
+# Hologram Sandbox Agent Example
 
 Starter template for building your own **Hologram Verifiable AI Agent**. Fork this repo and customize the agent pack to ship a verifiable, credential-authenticated AI agent that users can reach through [Hologram Messaging](https://hologram.zone).
 
@@ -16,23 +16,23 @@ This example is built with the [`hologram-generic-ai-agent-vs`](https://github.c
 
 This agent is a **child service** of an Organization VS and authenticates users against an Avatar credential. Both are deployed from a companion repo:
 
-- [`hologram-ai-agent-example-deps`](https://github.com/2060-io/hologram-ai-agent-example-deps) — Organization + Avatar VS (one-time setup)
+- [`hologram-sandbox-deps`](https://github.com/2060-io/hologram-sandbox-deps) — Organization + Avatar VS (one-time setup)
 
-The pre-deployed demo instance lives at `organization.demos.hologram.zone` / `avatar.demos.hologram.zone`. You can point this example at it directly, or stand up your own for full control.
+The pre-deployed demo instance lives at `organization.sandbox.hologram.zone` / `avatar.sandbox.hologram.zone`. You can point this example at it directly, or stand up your own for full control.
 
 ```
 ┌─────────────────────────┐
-│   Hologram Demo SA      │   organization.demos.hologram.zone
+│   Hologram Demo SA      │   organization.sandbox.hologram.zone
 │   (Organization VS)     │   ← issues your agent a Service credential
 └──────────┬──────────────┘
            │
 ┌──────────▼──────────────┐
-│   Demo Avatar Issuer    │   avatar.demos.hologram.zone
+│   Demo Avatar Issuer    │   avatar.sandbox.hologram.zone
 │   (Avatar VS)           │   ← issues Avatar credentials to end users
 └──────────┬──────────────┘
            │
 ┌──────────▼──────────────┐
-│   Hologram Example      │   example-agent.demos.hologram.zone
+│   Hologram Sandbox      │   example-agent.sandbox.hologram.zone
 │   Agent (this repo)     │   ← authenticates users with Avatar credential
 └─────────────────────────┘
 ```
@@ -40,7 +40,7 @@ The pre-deployed demo instance lives at `organization.demos.hologram.zone` / `av
 ## Repository layout
 
 ```
-hologram-ai-agent-example/
+hologram-sandbox-agent-example/
 ├── config.env              # Service metadata, URLs, ports, LLM, MCP, DB
 ├── agent-pack.yaml         # Prompts, languages, flows, MCP, RAG, memory
 ├── deployment.yaml         # Helm chart values for K8s
@@ -67,12 +67,12 @@ hologram-ai-agent-example/
 - `curl`, `jq`
 - An OpenAI API key (or any other supported LLM — see the [agent-pack schema](https://github.com/2060-io/hologram-generic-ai-agent-vs/blob/main/docs/agent-pack-schema.md))
 - [Hologram Messaging](https://hologram.zone) on your phone
-- A Hologram Demo Avatar credential (grab one from `avatar.demos.hologram.zone`)
+- A Hologram Demo Avatar credential (grab one from `avatar.sandbox.hologram.zone`)
 
 ### Get your Avatar credential
 
 1. Open Hologram Messaging on your phone
-2. Navigate to `https://avatar.demos.hologram.zone/`
+2. Navigate to `https://avatar.sandbox.hologram.zone/`
 3. Scan the QR code, follow the prompts, receive your **Hologram Demo Avatar** credential
 
 ### Quick start
@@ -114,9 +114,9 @@ Run the **Deploy Example Agent** workflow from the Actions tab with step `all`. 
 
 1. Creates the namespace, Postgres secret, and agent-pack ConfigMap
 2. Runs `helm upgrade --install` with `hologram-generic-ai-agent-chart`
-3. Obtains a Service credential from `organization.demos.hologram.zone` and links it on the new agent
+3. Obtains a Service credential from `organization.sandbox.hologram.zone` and links it on the new agent
 
-The agent is then reachable at the ingress host configured in `deployment.yaml` (default `example-agent.demos.hologram.zone`).
+The agent is then reachable at the ingress host configured in `deployment.yaml` (default `example-agent.sandbox.hologram.zone`).
 
 ## Customizing for your own agent
 
@@ -133,7 +133,7 @@ Full reference: [Agent Pack schema](https://github.com/2060-io/hologram-generic-
 
 ## Related
 
-- [`hologram-ai-agent-example-deps`](https://github.com/2060-io/hologram-ai-agent-example-deps) — organization + avatar dependencies
+- [`hologram-sandbox-deps`](https://github.com/2060-io/hologram-sandbox-deps) — organization + avatar dependencies
 - [`hologram-generic-ai-agent-vs`](https://github.com/2060-io/hologram-generic-ai-agent-vs) — the underlying agent container + Helm chart
 - [`vs-agent`](https://github.com/2060-io/vs-agent) — DIDComm / verifiable credential primitives
 - [`hologram-verifiable-services`](https://github.com/2060-io/hologram-verifiable-services) — more agent examples (Wise, X, GitHub, …)

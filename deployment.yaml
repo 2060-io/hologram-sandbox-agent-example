@@ -6,12 +6,12 @@
 #   - Redis (vector store, memory, queues)
 #   - PostgreSQL (session persistence)
 #
-# Deployment target: demos.hologram.zone
+# Deployment target: sandbox.hologram.zone
 chartSource: oci://registry-1.docker.io/io2060/hologram-generic-ai-agent-chart
 chartVersion: v1.13.0
 
 global:
-  domain: demos.hologram.zone
+  domain: sandbox.hologram.zone
 
 nameOverride: 'example-agent-chart'
 

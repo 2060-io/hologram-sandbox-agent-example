@@ -13,12 +13,12 @@ Download the Hologram Messaging app from the [App Store](https://apps.apple.com/
 The agent uses credential-based authentication — you need a **Hologram Demo Avatar** credential to chat with it.
 
 1. Open Hologram Messaging on your phone.
-2. Navigate to `https://avatar.demos.hologram.zone/`.
+2. Navigate to `https://avatar.sandbox.hologram.zone/`.
 3. Scan the QR code, choose a display name, and accept the credential offer.
 
 ### 3. Connect to the agent
 
-Scan the QR code at `https://example-agent.demos.hologram.zone/`. The agent will greet you and ask you to authenticate.
+Scan the QR code at `https://example-agent.sandbox.hologram.zone/`. The agent will greet you and ask you to authenticate.
 
 ### 4. Authenticate
 
@@ -46,7 +46,7 @@ Just type in natural language. The agent figures out which Context7 tool to call
 | Problem | Solution |
 |---|---|
 | "Authentication required" | Open the menu and tap **Authenticate**, then accept the credential request |
-| The agent never gets my credential | Make sure you obtained the Avatar credential at `avatar.demos.hologram.zone` first |
+| The agent never gets my credential | Make sure you obtained the Avatar credential at `avatar.sandbox.hologram.zone` first |
 | The agent is unresponsive | Try sending "hello" or disconnect and reconnect from Hologram Messaging |
 | "Tool failed" or empty results | The Context7 service may be momentarily unavailable — retry in a few seconds |
 
