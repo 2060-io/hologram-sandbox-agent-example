@@ -2,14 +2,14 @@
 
 Starter template for building your own **Hologram Verifiable AI Agent**. Fork this repo and customize the agent pack to ship a verifiable, credential-authenticated AI agent that users can reach through [Hologram Messaging](https://hologram.zone).
 
-This example is built with the [`hologram-generic-ai-agent-vs`](https://github.com/2060-io/hologram-generic-ai-agent-vs) container — a ready-to-use chatbot with DIDComm messaging, verifiable-credential authentication, RAG, and MCP tool integration, all driven by a single `agent-pack.yaml` manifest.
+This example is built with the [`hologram-ai-agent`](https://github.com/2060-io/hologram-ai-agent) container — a ready-to-use chatbot with DIDComm messaging, verifiable-credential authentication, RAG, and MCP tool integration, all driven by a single `agent-pack.yaml` manifest.
 
 ## What this example gives you
 
-- An AI agent that **authenticates users with a Hologram Demo Avatar credential** (AnonCreds, issued by the deps repo).
+- An AI agent that **authenticates users with a Hologram Sandbox Avatar credential** (AnonCreds, issued by the deps repo).
 - Integration with **[Context7](https://context7.com) MCP** (zero-auth, publicly hosted) so the agent can answer questions about any library or framework by fetching up-to-date documentation in real time.
 - A working `docker-compose.yml` for local development with hot-reload-friendly volume mounts.
-- A GitHub Actions workflow that deploys the agent to Kubernetes via the `hologram-generic-ai-agent-chart` Helm chart.
+- A GitHub Actions workflow that deploys the agent to Kubernetes via the `hologram-ai-agent-chart` Helm chart.
 - Sensible defaults in every config file — override what you need, keep the rest.
 
 ## Dependencies
@@ -65,15 +65,15 @@ hologram-sandbox-agent-example/
 - Docker + Docker Compose
 - [ngrok](https://ngrok.com) (authenticated)
 - `curl`, `jq`
-- An OpenAI API key (or any other supported LLM — see the [agent-pack schema](https://github.com/2060-io/hologram-generic-ai-agent-vs/blob/main/docs/agent-pack-schema.md))
+- An OpenAI API key (or any other supported LLM — see the [agent-pack schema](https://github.com/2060-io/hologram-ai-agent/blob/main/docs/agent-pack-schema.md))
 - [Hologram Messaging](https://hologram.zone) on your phone
-- A Hologram Demo Avatar credential (grab one from `avatar.sandbox.hologram.zone`)
+- A Hologram Sandbox Avatar credential (grab one from `avatar.sandbox.hologram.zone`)
 
 ### Get your Avatar credential
 
 1. Open Hologram Messaging on your phone
 2. Navigate to `https://avatar.sandbox.hologram.zone/`
-3. Scan the QR code, follow the prompts, receive your **Hologram Demo Avatar** credential
+3. Scan the QR code, follow the prompts, receive your **Hologram Sandbox Avatar** credential
 
 ### Quick start
 
@@ -90,7 +90,7 @@ export OPENAI_API_KEY=sk-...
 ./scripts/start.sh
 ```
 
-> Prefer a different LLM? `agent-pack.yaml` supports Anthropic, Ollama (local), and any OpenAI-compatible endpoint (Kimi, DeepSeek, Groq, Together AI, …). See [how-to-use-ollama.md](https://github.com/2060-io/hologram-generic-ai-agent-vs/blob/main/docs/how-to-use-ollama.md).
+> Prefer a different LLM? `agent-pack.yaml` supports Anthropic, Ollama (local), and any OpenAI-compatible endpoint (Kimi, DeepSeek, Groq, Together AI, …). See [how-to-use-ollama.md](https://github.com/2060-io/hologram-ai-agent/blob/main/docs/how-to-use-ollama.md).
 
 ## Kubernetes deployment
 
@@ -113,7 +113,7 @@ The `.github/workflows/deploy.yml` workflow deploys the agent via Helm to your c
 Run the **Deploy Example Agent** workflow from the Actions tab with step `all`. This:
 
 1. Creates the namespace, Postgres secret, and agent-pack ConfigMap
-2. Runs `helm upgrade --install` with `hologram-generic-ai-agent-chart`
+2. Runs `helm upgrade --install` with `hologram-ai-agent-chart`
 3. Obtains a Service credential from `organization.sandbox.hologram.zone` and links it on the new agent
 
 The agent is then reachable at the ingress host configured in `deployment.yaml` (default `example-agent.sandbox.hologram.zone`).
@@ -127,14 +127,14 @@ The whole point of this repo is to be forked. Typical customization path:
 3. **LLM.** Switch provider / model in `agent-pack.yaml:llm` and `config.env`. For OpenAI-compatible endpoints, set `OPENAI_BASE_URL`.
 4. **Tools.** Add or swap MCP servers under `mcp.servers` — the Context7 entry is a template. Use `accessMode: user-controlled` for per-user tokens (e.g. GitHub PAT), `admin-controlled` for shared tokens (e.g. Wise API key).
 5. **Authentication.** Change `flows.authentication.credentialDefinitionId` to require a different credential, or set `enabled: false` to make the agent open.
-6. **RBAC / approvals** (advanced). Use `toolAccess.roles` and `toolAccess.approval` to gate tools by role and require managerial approval for sensitive operations. See [`rbac-approval-spec.md`](https://github.com/2060-io/hologram-generic-ai-agent-vs/blob/main/docs/rbac-approval-spec.md).
+6. **RBAC / approvals** (advanced). Use `toolAccess.roles` and `toolAccess.approval` to gate tools by role and require managerial approval for sensitive operations. See [`rbac-approval-spec.md`](https://github.com/2060-io/hologram-ai-agent/blob/main/docs/rbac-approval-spec.md).
 
-Full reference: [Agent Pack schema](https://github.com/2060-io/hologram-generic-ai-agent-vs/blob/main/docs/agent-pack-schema.md).
+Full reference: [Agent Pack schema](https://github.com/2060-io/hologram-ai-agent/blob/main/docs/agent-pack-schema.md).
 
 ## Related
 
 - [`hologram-sandbox-deps`](https://github.com/2060-io/hologram-sandbox-deps) — organization + avatar dependencies
-- [`hologram-generic-ai-agent-vs`](https://github.com/2060-io/hologram-generic-ai-agent-vs) — the underlying agent container + Helm chart
+- [`hologram-ai-agent`](https://github.com/2060-io/hologram-ai-agent) — the underlying agent container + Helm chart
 - [`vs-agent`](https://github.com/2060-io/vs-agent) — DIDComm / verifiable credential primitives
 - [`hologram-verifiable-services`](https://github.com/2060-io/hologram-verifiable-services) — more agent examples (Wise, X, GitHub, …)
 - [Hologram docs](https://docs.hologram.zone) — concepts, how-tos, reference

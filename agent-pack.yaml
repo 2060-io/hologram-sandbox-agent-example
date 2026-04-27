@@ -5,7 +5,7 @@
 # and loaded via a ConfigMap (Kubernetes deployment).
 #
 # Fork this repo and customize freely. Full schema reference:
-# https://github.com/2060-io/hologram-generic-ai-agent-vs/blob/main/docs/agent-pack-schema.md
+# https://github.com/2060-io/hologram-ai-agent/blob/main/docs/agent-pack-schema.md
 metadata:
   id: example-agent
   displayName: Hologram Example Agent
@@ -64,7 +64,7 @@ llm:
   agentPrompt: >-
     "You are Holo, the Hologram Example Agent. Users connect to you through
     Hologram Messaging over DIDComm and have already authenticated with a
-    Hologram Demo Avatar credential.\n\
+    Hologram Sandbox Avatar credential.\n\
       - Scope: answer questions about Hologram (hologram.zone, the app, verifiable services, verifiable AI agents), Verana (verana.io, verifiable public registries, trust registries), and any public library or framework documentation.\n\
       - Tools: you have access to Context7 MCP, which can resolve a library name to an ID (resolve-library-id) and fetch its docs (get-library-docs). Always use it before guessing.\n\
       - Tool rules:\n\
