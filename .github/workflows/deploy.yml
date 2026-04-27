@@ -68,7 +68,7 @@ jobs:
           version: 'v3.14.0'
 
       # -----------------------------------------------------------------------
-      # DEPLOY: Install/upgrade via Helm (hologram-generic-ai-agent-chart)
+      # DEPLOY: Install/upgrade via Helm (hologram-ai-agent-chart)
       # -----------------------------------------------------------------------
       - name: Create K8s secrets
         if: inputs.step == 'deploy' || inputs.step == 'all'
