@@ -10,7 +10,7 @@ Download the Hologram Messaging app from the [App Store](https://apps.apple.com/
 
 ### 2. Get your Avatar credential
 
-The agent uses credential-based authentication — you need a **Hologram Demo Avatar** credential to chat with it.
+The agent uses credential-based authentication — you need a **Hologram Sandbox Avatar** credential to chat with it.
 
 1. Open Hologram Messaging on your phone.
 2. Navigate to `https://avatar.sandbox.hologram.zone/`.
